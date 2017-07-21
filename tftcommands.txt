@@ -2,4 +2,4 @@ modprobe fbtft dma=1
 modprobe fbtft_device txbuflen=32768 busnum=32766 custom name=fb_ili9340 speed=36000000 gpios=reset:133,dc:134,led:34 bgr=1 rotate=90
 docker run -it --rm --device /dev/fb0 --device /dev/tty1 --cap-add SYS_TTY_CONFIG --cap-add SYS_RAWIO fbi-display_397018bd-66b2-40a8-a3d9-3266034ffd9e-img /bin/sh --login
 fbi --noverbose -T 1 -d /dev/fb0 ntc.png # Display one picture
-fbi --noverbose -t 5 -T 1 -d /dev/fb0 *.png # Display all png images as a slide show
+fbi --noverbose -a -t 5 -T 1 -d /dev/fb0 *.png # Display all png images as a slide show
