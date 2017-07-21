@@ -6,7 +6,7 @@ onboot:
 - name: spi-loader
   uuid: 1861fdfb-4d28-40f6-befa-2bccc26c08aa
   image: ""
-  directory: "gadget-spi-loader"
+  directory: gadget-spi-loader
   net: ""
   readonly: false
   command: [/bin/sh, spiselect.sh]
@@ -16,11 +16,11 @@ onboot:
 services:
 - name: fbi-display
   uuid: 397018bd-66b2-40a8-a3d9-3266034ffd9e
-  image:
-  directory: "fbi-display"
+  image: ""
+  directory: fbi-display
   net: ""
   readonly: false
   command: []
   binds: []
   capabilities: [SYS_RAWIO]
-  devices: ["/dev/fb0", "/dev/tty0"]
+  devices: [/dev/fb0, /dev/tty0]
