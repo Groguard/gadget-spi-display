@@ -1,7 +1,9 @@
 # ALPINE LINUX ARM WOOO!
-FROM armhf/alpine as build
+FROM armhf/alpine
 
 RUN apk update && apk add fbida-fbi && apk add ttf-dejavu
-COPY ntc.png .
-COPY ntc1.png .
-COPY gr8.png .
+ADD ntc.png /
+ADD ntc1.png /
+ADD gr8.png /
+
+CMD ["fbi", "--noverbose", "-T 1", "-d /dev/fb0", "/ntc.png"]

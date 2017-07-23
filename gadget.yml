@@ -5,22 +5,22 @@ type: docker
 onboot:
 - name: spi-loader
   uuid: 1861fdfb-4d28-40f6-befa-2bccc26c08aa
-  image: ""
+  image: ''
   directory: gadget-spi-loader
-  net: ""
+  net: ''
   readonly: false
-  command: [/bin/sh, spiselect.sh]
-  binds: ['/sys:/sys']
-  capabilities: [SYS_RAWIO]
+  command: ['/bin/sh', 'spiselect.sh']
+  binds: ['/sys:/sys', '/lib/modules:/lib/modules']
+  capabilities: ['SYS_RAWIO', 'SYS_MODULE']
   devices: []
 services:
 - name: fbi-display
   uuid: 397018bd-66b2-40a8-a3d9-3266034ffd9e
-  image: ""
+  image: ''
   directory: fbi-display
-  net: ""
+  net: ''
   readonly: false
   command: []
-  binds: []
-  capabilities: [SYS_RAWIO]
-  devices: [/dev/fb0, /dev/tty0]
+  binds: ['/sys:/sys']
+  capabilities: ['SYS_RAWIO', 'SYS_TTY_CONFIG']
+  devices: ['/dev/fb0','/dev/tty1', '/dev/mem']
