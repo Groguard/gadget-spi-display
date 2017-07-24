@@ -6,4 +6,6 @@ ADD ntc.png /
 ADD ntc1.png /
 ADD gr8.png /
 
-CMD ["fbi", "--noverbose", "-T 1", "-d /dev/fb0", "/ntc.png"]
+ADD runfbi.sh /
+
+CMD ["/bin/sh", "/runfbi.sh"]

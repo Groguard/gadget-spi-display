@@ -10,8 +10,8 @@ onboot:
   net: ''
   readonly: false
   command: ['/bin/sh', 'spiselect.sh']
-  binds: ['/sys:/sys', '/lib/modules:/lib/modules']
-  capabilities: ['SYS_RAWIO', 'SYS_MODULE']
+  binds: ['/sys:/sys']
+  capabilities: ['SYS_RAWIO']
   devices: []
 services:
 - name: fbi-display
@@ -21,6 +21,6 @@ services:
   net: ''
   readonly: false
   command: []
-  binds: ['/sys:/sys']
-  capabilities: ['SYS_RAWIO', 'SYS_TTY_CONFIG']
+  binds: ['/sys:/sys', '/lib/modules:/lib/modules']
+  capabilities: ['SYS_RAWIO', 'SYS_TTY_CONFIG', 'SYS_MODULE']
   devices: ['/dev/fb0','/dev/tty1', '/dev/mem']
