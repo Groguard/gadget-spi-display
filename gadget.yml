@@ -21,7 +21,7 @@ onboot:
   readonly: false
   command: []
   binds: ['/sys:/sys', '/lib/modules:/lib/modules']
-  capabilities: ['SYS_RAWIO', 'SYS_MODULE', 'MKNOD']
+  capabilities: ['SYS_RAWIO', 'SYS_MODULE']
   devices: []
 services:
 - name: fbi-display
