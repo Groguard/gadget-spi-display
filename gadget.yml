@@ -9,9 +9,19 @@ onboot:
   directory: gadget-spi-loader
   net: ''
   readonly: false
-  command: ['/bin/sh', 'spiselect.sh']
+  command: []
   binds: ['/sys:/sys']
-  capabilities: ['SYS_RAWIO']
+  capabilities: [SYS_RAWIO]
+  devices: []
+- name: module-loader
+  uuid: 58903351-368d-456e-8d05-0bccf05bf3b4
+  image: ''
+  directory: module-loader
+  net: ''
+  readonly: false
+  command: []
+  binds: ['/sys:/sys', '/lib/modules:/lib/modules']
+  capabilities: ['SYS_RAWIO', 'SYS_MODULE', 'MKNOD']
   devices: []
 services:
 - name: fbi-display
@@ -21,6 +31,6 @@ services:
   net: ''
   readonly: false
   command: []
-  binds: ['/sys:/sys', '/lib/modules:/lib/modules']
-  capabilities: ['SYS_RAWIO', 'SYS_TTY_CONFIG', 'SYS_MODULE']
-  devices: ['/dev/fb0','/dev/tty1', '/dev/mem']
+  binds: ['/sys:/sys']
+  capabilities: ['SYS_RAWIO', 'SYS_TTY_CONFIG']
+  devices: ['/dev/fb0', '/dev/tty1']
